@@ -1,13 +1,17 @@
-from flask import Flask
+import config
+from app import app
 
-app = Flask(__name__)
+app.config.from_object(config)
 
 
 @app.route('/')
 def hello_world():
-    return 'Hello World!'
+    return "Use '/bothook' url as Telegram API webhook target."
 
 
 if __name__ == '__main__':
-    context = ('cert.pem', 'key.pem')
-    app.run(port=8080, ssl_context=context)
+    app.run(
+        host=app.config['HOST'],
+        port=app.config['PORT'],
+        ssl_context=app.config['SSL_CONTEXT'],
+    )
