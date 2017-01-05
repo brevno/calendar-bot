@@ -1,2 +1,4 @@
 Flask==0.12
+google-api-python-client==1.5.5
 pyTelegramBotAPI==2.3.0
+python-dateutil==2.6.0
